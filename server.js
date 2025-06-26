@@ -23,7 +23,7 @@ async function getAccessToken() {
   params.append('client_id', CLIENT_ID);
   params.append('client_secret', CLIENT_SECRET);
 
-  const res = await axios.post('https://api.usps.com/oauth2/v3/token', params);
+  const res = await axios.post('https://apis.usps.com/oauth2/v3/token', params);
   cachedToken = res.data.access_token;
   tokenExpiresAt = now + res.data.expires_in * 1000 - 10000; // Buffer de 10s
 
@@ -35,7 +35,7 @@ app.post('/validate-address', async (req, res) => {
     const { streetAddress, city, state, ZIPCode, secondaryAddress } = req.body;
     const token = await getAccessToken();
 
-    const response = await axios.get('https://api.usps.com/addresses/v3/address', {
+    const response = await axios.get('https://apis.usps.com/addresses/v3/address', {
       headers: {
         Authorization: `Bearer ${token}`,
         Accept: 'application/json'
