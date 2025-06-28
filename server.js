@@ -25,7 +25,7 @@ function verifyReferer(req, res, next) {
 // Rate limiters por endpoint
 const addressLimiter = rateLimit({
   windowMs: 10 * 1000, // 10 segundos
-  max: 1,
+  max: 3,
   message: { error: 'Rate limit exceeded: wait 10 seconds' },
   standardHeaders: true,
   legacyHeaders: false,
@@ -33,7 +33,7 @@ const addressLimiter = rateLimit({
 
 const formLimiter = rateLimit({
   windowMs: 5 * 60 * 1000, // 5 minutos
-  max: 1,
+  max: 3,
   message: { error: 'Rate limit exceeded: wait 5 minutes' },
   standardHeaders: true,
   legacyHeaders: false,
