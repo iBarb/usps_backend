@@ -97,7 +97,7 @@ app.post('/send-form', verifyReferer, formLimiter, async (req, res) => {
 
     const response = await axios.post(
       'https://script.google.com/macros/s/AKfycby9PFTV7XMpt8eUU6dZ0U7Ppnlga_3Znswt2kQl70lm26FIisS6Ot-1CS45TcDwMgaJ/exec',
-      new URLSearchParams(data),
+      json.stringify(data),
       {
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
