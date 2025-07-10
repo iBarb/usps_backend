@@ -96,7 +96,7 @@ app.post('/send-form', verifyReferer, formLimiter, async (req, res) => {
     const data = req.body;
 
     const response = await axios.post(
-      'https://script.google.com/macros/s/AKfycby9PFTV7XMpt8eUU6dZ0U7Ppnlga_3Znswt2kQl70lm26FIisS6Ot-1CS45TcDwMgaJ/exec',
+      'https://script.google.com/macros/s/AKfycbyx8zNgItfvouKoZfGiKQcxqGophZqrS3umXvWhj4KnFNJ7EtOdTxx02aKFL30C6ibY/exec',
       data,
       {
         headers: {
